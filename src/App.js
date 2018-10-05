@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Toggle from './Toggle';
+import Toggle from './ToggleRenderProps';
 
 class App extends Component {
   render() {
@@ -11,9 +11,22 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <Toggle>
-          <h1>Hello</h1>
-        </Toggle>
+        <Toggle
+          render={({ on, toggle }) => (
+            <div>
+              {on && <h1>Show me</h1>}
+              <button onClick={toggle}>Show / Hide</button>
+            </div>
+          )}
+        />
+        <Toggle
+          render={({ on, toggle }) => (
+            <div>
+              {on && <nav>nav</nav>}
+              <button onClick={toggle}>Menu</button>
+            </div>
+          )}
+        />
       </div>
     );
   }
