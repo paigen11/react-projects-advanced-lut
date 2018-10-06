@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Toggle from './ToggleRPC';
@@ -13,10 +13,10 @@ class App extends Component {
         </header>
         <Toggle>
           {({ on, toggle }) => (
-            <div>
+            <>
               {on && <h1>Show me</h1>}
               <button onClick={toggle}>Show / Hide</button>
-            </div>
+            </>
           )}
         </Toggle>
       </div>
