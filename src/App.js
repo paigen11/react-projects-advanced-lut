@@ -1,10 +1,10 @@
-import React, { Component, Fragment, createContext } from 'react';
+import React, { Component, Fragment } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Toggle } from 'Utilities';
 import { Modal } from 'Elements';
-
-const UserContext = createContext();
+import User from './User';
+import { UserContext } from './UserContext';
 
 class UserProvider extends Component {
   state = {
@@ -13,14 +13,16 @@ class UserProvider extends Component {
     email: 'paige@gmail.com',
   };
 
-  return() {
-    <UserContext.Provider
-      value={{
-        user: this.state,
-      }}
-    >
-      {this.props.children}
-    </UserContext.Provider>;
+  render() {
+    return (
+      <UserContext.Provider
+        value={{
+          user: this.state,
+        }}
+      >
+        {this.props.children}
+      </UserContext.Provider>
+    );
   }
 }
 
@@ -33,6 +35,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
+          <User />
           <Toggle>
             {({ on, toggle }) => (
               <>
