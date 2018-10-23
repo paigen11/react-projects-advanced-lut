@@ -4,36 +4,7 @@ import './App.css';
 import { Toggle } from 'Utilities';
 import { Modal } from 'Elements';
 import User from './User';
-import { UserContext } from './UserContext';
-
-class UserProvider extends Component {
-  state = {
-    id: '123',
-    name: 'Paige',
-    email: 'paige@gmail.com',
-  };
-
-  logout = () => {
-    this.setState({
-      id: null,
-      name: '',
-      email: '',
-    });
-  };
-
-  render() {
-    return (
-      <UserContext.Provider
-        value={{
-          user: this.state,
-          logout: this.logout,
-        }}
-      >
-        {this.props.children}
-      </UserContext.Provider>
-    );
-  }
-}
+import UserProvider from './UserProvider';
 
 class App extends Component {
   render() {
@@ -45,6 +16,16 @@ class App extends Component {
             <h1 className="App-title">Welcome to React</h1>
           </header>
           <User />
+          <section>
+            <Toggle>
+              {({ on, toggle }) => (
+                <>
+                  <button onClick={toggle}>Show / Hide</button>
+                  {on && <h1> Show me</h1>}
+                </>
+              )}
+            </Toggle>
+          </section>
           <Toggle>
             {({ on, toggle }) => (
               <>
