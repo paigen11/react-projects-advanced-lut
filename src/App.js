@@ -4,7 +4,7 @@ import { Transition } from 'react-spring';
 import logo from './logo.svg';
 import './App.css';
 import { Toggle } from 'Utilities';
-import { Modal } from 'Elements';
+import { Modal, Card } from 'Elements';
 import User from './User';
 import UserProvider from './UserProvider';
 
@@ -50,6 +50,10 @@ class App extends Component {
   }
 }
 
-const Header = styles => <h1 style={{ ...styles }}> Show me</h1>;
+const Header = styles => (
+  <Card style={{ ...styles }}>
+    <h1> Show me</h1>
+  </Card>
+);
 
 export default App;
