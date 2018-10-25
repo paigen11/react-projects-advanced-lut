@@ -24,11 +24,12 @@ class App extends Component {
                 <Fragment>
                   <button onClick={toggle}>Show / Hide</button>
                   <Transition
+                    items={on}
                     from={{ opacity: 0 }}
                     enter={{ opacity: 1 }}
                     leave={{ opacity: 0 }}
                   >
-                    {on && Header}
+                    {on => on && Header}
                   </Transition>
                 </Fragment>
               )}
@@ -52,7 +53,7 @@ class App extends Component {
 
 const Header = styles => (
   <Card style={{ ...styles }}>
-    <h1> Show me</h1>
+    <h1>Show me</h1>
   </Card>
 );
 
