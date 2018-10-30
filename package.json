@@ -7,6 +7,7 @@
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.3",
     "react-spring": "^6.0.0",
+    "react-with-gesture": "^1.0.10",
     "styled-components": "^3.4.9"
   },
   "scripts": {
